@@ -1,0 +1,35 @@
+<mtapp:setting
+    id="check_published"
+    label="<__trans phrase="Published trackback">"
+    hint="<__trans phrase="Select your action when the published trackback is dead">"
+    show_hint="1">
+<select name="check_published">
+    <option value="0"<mt:if name="check_published" eq="0"> selected="selected"</mt:if>><__trans phrase="Skip and no checking"></option>
+    <option value="1"<mt:if name="check_published" eq="1"> selected="selected"</mt:if>><__trans phrase="Turn unpublished"></option>
+    <option value="2"<mt:if name="check_published" eq="2"> selected="selected"</mt:if>><__trans phrase="Turn junked"></option>
+    <option value="3"<mt:if name="check_published" eq="3"> selected="selected"</mt:if>><__trans phrase="Delete"></option>
+</select>
+</mtapp:setting>
+
+<mtapp:setting
+    id="check_moderated"
+    label="<__trans phrase="Moderated trackback">"
+    hint="<__trans phrase="Select your action when the moderated trackback is dead">"
+    show_hint="1">
+<select name="check_moderated">
+    <option value="0"<mt:if name="check_moderated" eq="0"> selected="selected"</mt:if>><__trans phrase="Skip and no checking"></option>
+    <option value="2"<mt:if name="check_moderated" eq="2"> selected="selected"</mt:if>><__trans phrase="Turn junked"></option>
+    <option value="3"<mt:if name="check_moderated" eq="3"> selected="selected"</mt:if>><__trans phrase="Delete"></option>
+</select>
+</mtapp:setting>
+
+<mtapp:setting
+    id="check_junked"
+    label="<__trans phrase="Junked trackback">"
+    hint="<__trans phrase="Select your action when the junked trackback is dead">"
+    show_hint="1">
+<select name="check_junked">
+    <option value="0"<mt:if name="check_junked" eq="0"> selected="selected"</mt:if>><__trans phrase="Skip and no checking"></option>
+    <option value="3"<mt:if name="check_junked" eq="3"> selected="selected"</mt:if>><__trans phrase="Delete"></option>
+</select>
+</mtapp:setting>

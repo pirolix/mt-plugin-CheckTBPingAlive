@@ -1,0 +1,48 @@
+<mt:setvarblock name="page_title"><__trans phrase="Checking trackback&apos;s alive"> (<$mt:var name="cnt_current"$>/<$mt:var name="cnt_total"$>)</mt:setvarblock>
+
+<mt:include name="include/header.tmpl">
+
+<mtapp:setting
+    id="source_blog" label="<__trans phrase="Source Site">">
+  <$mt:var name="site_title" escape="html"$>
+</mtapp:setting>
+
+<mtapp:setting
+    id="source_title" label="<__trans phrase="Source Title">">
+  <$mt:var name="article_title" escape="html"$>
+</mtapp:setting>
+
+<mtapp:setting
+    id="source_title" label="<__trans phrase="URL">">
+  <$mt:var name="article_url" escape="html"$>
+</mtapp:setting>
+
+<mtapp:setting
+    id="status" label="<__trans phrase="Status">">
+  <$mt:var name="ping_status" escape="html"$><mt:if name="ping_action"><br />
+  <$mt:var name="ping_action" escape="html"$></mt:if>
+</mtapp:setting>
+
+
+
+<form name="param" method="post" action="<$mt:var script_url$>">
+    <input type="hidden" name="__mode" value="<mt:var name="__mode" escape="html">" />
+    <input type="hidden" name="_type" value="<mt:var name="_type" escape="html">" />
+    <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+    <input type="hidden" name="return_args" value="<$mt:var name="return_args" escape="html"$>" />
+    <input type="hidden" name="magic_token" value="<mt:var name="magic_token" escape="html">" />
+
+    <mt:if name="id"><input type="hidden" name="id" value="<mt:var name="id">" /></mt:if>
+    <mt:if name="finish"><input type="hidden" name="finish" value="<mt:var name="finish">" /></mt:if>
+    <input type="hidden" name="cnt_total" value="<mt:var name="cnt_total">" />
+    <input type="hidden" name="cnt_current" value="<mt:var name="cnt_current">" />
+    <input type="hidden" name="cnt_alive" value="<mt:var name="cnt_alive">" />
+    <input type="hidden" name="cnt_unpub" value="<mt:var name="cnt_unpub">" />
+    <input type="hidden" name="cnt_junk" value="<mt:var name="cnt_junk">" />
+    <input type="hidden" name="cnt_delete" value="<mt:var name="cnt_delete">" />
+</form>
+<script type="text/javascript">
+    setTimeout (function(){ document.forms['param'].submit() }, 500);
+</script>
+
+<mt:include name="include/footer.tmpl">

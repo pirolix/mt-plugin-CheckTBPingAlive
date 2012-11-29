@@ -1,0 +1,38 @@
+<mt:setvar name="position_actions_bottom" value="1">
+<mt:setvarblock name="page_title"><__trans phrase="Finished trackback alive checking"></mt:setvarblock>
+
+<mt:setvartemplate name="action_buttons">
+<button
+   onclick="location.href='<mt:var name="script_url">?<mt:var name="return_args">';return false;"
+   accesskey="s"
+   title="<__trans phrase="Finish (s)">"
+   class="action primary button">
+  <__trans phrase="Finish">
+</button>
+</mt:setvartemplate>
+
+
+
+<mt:include name="include/header.tmpl">
+
+<mtapp:setting
+    id="status" label="<__trans phrase="Status">">
+<table align="left">
+    <tr><td width="200"><span class="icon-left icon-batch"><__trans phrase="Total checked"></span></td>
+            <td><mt:var name="cnt_total"></td></tr>
+    <tr><td><span class="icon-left icon-success"><__trans phrase="In alive"></span></td>
+            <td><mt:var name="cnt_alive"></td></tr>
+    <tr><td><span class="icon-left icon-draft"><__trans phrase="Turn unpublished"></span></td>
+            <td><mt:var name="cnt_unpub"></td></tr>
+    <tr><td><span class="icon-left icon-spam"><__trans phrase="Turn junked"></span></td>
+            <td><mt:var name="cnt_junk"></td></tr>
+    <tr><td><span class="icon-left icon-error"><__trans phrase="Removed"></span></td>
+            <td><mt:var name="cnt_delete"></td></tr>
+</table>
+</mtapp:setting>
+
+<mt:if name="position_actions_bottom">
+  <mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1">
+</mt:if>
+
+<mt:include name="include/footer.tmpl">
